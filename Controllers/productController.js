@@ -9,3 +9,14 @@ exports.getAllProductsController = async(req,res)=>{
         res.status(401).json(error)
     }
 }
+
+exports.getProductController = async(req,res)=>{
+    const {id}=req.params
+
+    try {
+        const product =await products.findOne({id})
+        res.status(200).json(product)
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}
