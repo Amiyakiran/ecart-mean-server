@@ -22,6 +22,11 @@ router.post('/login',userController.loginController)
 router.get('/get-product/:id',productController.getProductController)
 
 //add to wishlist
-router.get('/wishlist/add/:id',jwtMiddleware,wishlistController.addToWishlistController)
+router.post('/wishlist/add',jwtMiddleware,wishlistController.addToWishlistController)
+
+//get wishlist
+router.get('/wishlist/get-products',jwtMiddleware,wishlistController.getWishlistController)
+//remove item from wishlist
+router.delete('/remove-wishlist/:id',jwtMiddleware,wishlistController.removefromWishlist)
 
 module.exports = router

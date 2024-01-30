@@ -6,7 +6,7 @@ const jwtMiddleware = (req,res,next)=>{
 
     const token = req.headers['authorization'].split(' ')[1]
     console.log(token);
-    const jwtResponse = jwt.sign(token,process.env.JWT_KEY)
+    const jwtResponse = jwt.verify(token,process.env.JWT_KEY)
     console.log(jwtResponse);
     req.payload = jwtResponse.userId
     next()
