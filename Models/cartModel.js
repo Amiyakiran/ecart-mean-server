@@ -37,7 +37,7 @@ const cartSchema = new mongoose.Schema({
             require:true
         }
     },
-    qantity:{
+    quantity:{
      type:Number,
      require:true
     },
