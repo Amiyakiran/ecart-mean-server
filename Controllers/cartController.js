@@ -84,3 +84,26 @@ exports.decrementCartController = async(req,res)=>{
         res.status(401).json(error)
     }
 }
+
+//remove cart item
+exports.removeCartItemController = async(req,res)=>{
+    const {id}= req.params
+    try {
+        await carts.deleteOne({_id:id})
+        res.status(200).json('product removed')
+        
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}
+
+//empty cart
+exports.emptyCartController = async(req,res)=>{
+    const userId = req.payload
+    try {
+        await carts.deleteMany({userId})
+        res.status(200).json('all item removed')
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}

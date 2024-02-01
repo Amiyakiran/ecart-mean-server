@@ -35,4 +35,13 @@ router.post('/add-cart',jwtMiddleware,cartController.addToCartController)
 
 //getcart
 router.get('/cart/get-allproduct',jwtMiddleware,cartController.getCartController)
+//increament count
+router.get('/cart/increment/:id',jwtMiddleware,cartController.increamentCartController)
+//decrement
+router.get('/cart/decrement/:id',jwtMiddleware,cartController.decrementCartController)
+
+//remove cart item
+router.delete('/cart/remove/:id',jwtMiddleware,cartController.removeCartItemController)
+//empty cart
+router.delete('/cart/empty',jwtMiddleware,cartController.emptyCartController)
 module.exports = router
